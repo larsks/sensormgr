@@ -1,0 +1,25 @@
+sensors:
+  - name: temperature
+    type: gauge
+    method: i2c
+    i2c:
+      address: 4
+      command: 3
+  - name: light sensor
+    type: gauge
+    method: i2c
+    i2c:
+      address: 4
+      command: 4
+  - name: pushbutton
+    type: boolean
+    method: gpio
+    gpio:
+      pin: 24
+  - name: processes
+    lifetime: 2
+    type: int
+    method: command
+    command:
+      command: "ps -fe | wc -l"
+      shell: true
